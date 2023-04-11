@@ -130,12 +130,7 @@
 *** Abstract                                                       :ignore:
 
 #+LaTeX: \begin{abstract}
-
-TODO: 
-- [ ] Integrare note review
-- [ ] Sistemare Tabella 1
-- [ ] Scrivere Abstract
-
+TODO: Integrare note review, Scrivere Abstract
 #+LaTeX: \end{abstract}
 
 *** Graphical Abstract                                             :ignore:
