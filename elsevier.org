@@ -108,7 +108,7 @@
 \author[IIT]{Gori M. \& Balzarotti N.}
 %% \ead{monica.gori@iit.it}
 \author[GASLINI]{Cornaglia S.\corref{cor}}
-\ead{sara.cornaglia@gmail.com}
+%% \ead{sara.cornaglia@gmail.com}
 
 \author[IIT]{Crepaldi M.}
 
@@ -120,17 +120,20 @@
 \author[GASLINI]{Primavera L.}
 \author[GASLINI]{Bertamino M.}
 
-\address[IIT]{Istituto Italiano di Tecnologia, Genova -- Italy}
+\address[IIT]{Istituto Italiano di Tecnologia, Genoa -- Italy}
 
 \address[GASLINI]{Physical Medicine and Rehabilitation Unit, IRCCS Istituto Giannina Gaslini, Genoa -- Italy}
 
-\cortext[cor]{Corresponding author}
+\cortext[cor]{Corresponding author. Email address: \texttt{sara.cornaglia@gmail.com} (Sara Cornaglia)}
 #+END_EXPORT
 
 *** Abstract                                                       :ignore:
 
 #+LaTeX: \begin{abstract}
-TODO: Integrare note review, Scrivere Abstract
+TODO: Scrivere Abstract
+One author has been designated as the corresponding author with contact details:
+• E-mail address
+• Full postal address
 #+LaTeX: \end{abstract}
 
 *** Graphical Abstract                                             :ignore:
