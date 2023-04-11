@@ -1,7 +1,7 @@
 %%
-%% This is file `elsarticle-num-names.bst'  (Version 2.1),
+%% This is file `elsarticle-num-names.bst'  (Version 2.0),
 %% 
-%% Copyright 2009-2019 Elsevier Ltd
+%% Copyright 2009-2012 Elsevier Ltd
 %% 
 %% This file is part of the 'Elsarticle Bundle'.
 %% ---------------------------------------------
@@ -13,7 +13,7 @@
 %% and version 1.2 or later is part of all distributions of LaTeX
 %% version 1999/12/01 or later.
 %%
-%% $Id: elsarticle-num-names.bst 163 2019-01-14 09:54:24Z rishi $
+%% $Id: elsarticle-num-names.bst 54 2012-10-22 08:02:10Z rishi $
 %%
 %% $URL: http://lenova.river-valley.com/svn/elsarticle/trunk/elsarticle-num-names.bst $
 %%
@@ -1531,4 +1531,3 @@ EXECUTE {end.bib}
 %%
 %% 30.08.2012
 %%   a. collaboration added.
-

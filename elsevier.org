@@ -1,28 +1,46 @@
 # -*- coding: utf-8 -*-
 # -*- mode: org -*-
 
-#+TITLE: The Elsevier LaTeX Class in Org-Mode
-#+AUTHOR: Lucas Mello Schnorr
+#+title: Multisensory full-body training and technologies for stroke children: the case of climbing
+#+author: Nicolò Balzarotti
 
-#+STARTUP: overview indent
-#+LANGUAGE: pt-br
-#+OPTIONS: H:3 creator:nil timestamp:nil skip:nil toc:nil num:t ^:nil ~:~
-#+OPTIONS: author:nil title:nil date:nil
-#+TAGS: noexport(n) deprecated(d) ignore(i)
-#+EXPORT_SELECT_TAGS: export
-#+EXPORT_EXCLUDE_TAGS: noexport
+#+startup: overview indent
+#+language: en-UK
+#+options: H:3 creator:nil timestamp:nil skip:nil toc:nil num:t ^:nil ~:~
+#+options: author:nil title:nil date:nil
+#+tags: noexport(n) deprecated(d) ignore(i)
+#+export_select_tags: export
+#+export_exclude_tags: noexport
 
-#+LATEX_CLASS: ELSEVIER
-#+LATEX_CLASS_OPTIONS: [final,12pt]
-#+LATEX_HEADER: \usepackage[utf8]{inputenc}
-#+LATEX_HEADER: \usepackage[T1]{fontenc}
-#+LATEX_HEADER: \usepackage{lineno}
-#+LATEX_HEADER: \linenumbers
-#+LATEX_HEADER: \modulolinenumbers[1]
-#+LATEX_HEADER: \usepackage{color}	
-#+LATEX_HEADER: \usepackage{hyperref,xspace}
-#+LATEX_HEADER: \usepackage[tight,footnotesize]{subfigure}
-#+LATEX_HEADER: \usepackage{tabularx}
+#+latex_class: ELSEVIER
+#+latex_class_options: [review]
+#+latex_header: \usepackage{natbib}
+#+latex_header: \usepackage{bibentry}
+#+latex_header: \usepackage{usebib}
+#+latex_header: \makeatletter\let\saved@bibitem\@bibitem\makeatother
+#+latex_header: \usepackage{hyperref}
+#+latex_header: \makeatletter\let\@bibitem\saved@bibitem\makeatother
+#+latex_header: \usepackage[utf8]{inputenc}
+#+latex_header: \usepackage[T1]{fontenc}
+#+latex_header: \usepackage{lineno}
+#+latex_header: \linenumbers
+#+latex_header: \modulolinenumbers[1]
+#+latex_header: \usepackage{color}	
+#+latex_header: \usepackage{hyperref,xspace}
+#+latex_header: \usepackage[tight,footnotesize]{subfigure}
+#+latex_header: \usepackage{float}
+#+latex_header: \usepackage{textcomp} %% TM symbol
+#+latex_header: \usepackage{glossaries}
+# #+latex_header: \usepackage{tabularx}
+#+latex_header: \newacronym{msi}{MSI}{multisensory integration}
+#+latex_header: \newacronym{cp}{CP}{cerebral palsy}
+#+latex_header: \newacronym{ct}{CT}{climbing therapy}
+#+latex_header: \newacronym{led}{LED}{Light Emitting Diode}
+#+latex_header: \newacronym{ml}{ML}{machine learning}
+#+latex_header: \newacronym{cimt}{CIMT}{Constraint-Induced Movement Therapy}
+#+latex_header: \newacronym{habit}{HABIT}{Hand-arm Bimanual Intensive Therapy}
+#+latex_header: \newacronym{vr}{VR}{virtual reality}
+#+latex_header: \glsdisablehyper
 
 # You need at least Org 9 and Emacs 24 to make this work.
 # If you do, just type make (thanks Luka Stanisic for this).
@@ -47,10 +65,17 @@
 #+RESULTS:
 
 * *The Paper*                                                       :ignore:
+
 ** Latex configurations                                             :ignore:
 #+BEGIN_EXPORT latex
-\journal{Information Sciences}
+\newbibfield{journal}
+\newbibfield{volume}
+\newbibfield{pages}
+\newbibfield{year}
+\bibinput{Review}
+\journal{Neuroscience \& Biobehavioral Reviews}
 #+END_EXPORT
+
 ** Frontpage                                                        :ignore:
 *** Authors and Affiliations                                       :ignore:
 #+BEGIN_EXPORT latex
@@ -72,32 +97,44 @@
 %% \address{Address\fnref{label3}}
 %% \fntext[label3]{}
 
-\author[UFRGS]{Lucas Mello Schnorr\corref{cor}}
-\ead{schnorr@inf.ufrgs.br}
+%% Marta vuole aggiungere Ludovica e Sara
+%% - [X] Monica e Io coautori primi
+%% - [X] Sara Cornaglia corresponding
+%% - [X] Marco (vedere se alberto e marco scambiarle)
+%% - [X] Alberto
+%% - [X] Ludovica Primavera
+%% - [X] Marta Ultima
 
-\author[UGA]{Jean-Marc Vincent}
-\ead{jean-marc.vincent@imag.fr}
+\author[IIT]{Gori M. \& Balzarotti N.}
+%% \ead{monica.gori@iit.it}
+\author[GASLINI]{Cornaglia S.\corref{cor}}
+\ead{sara.cornaglia@gmail.com}
 
-\address[UFRGS]{
-Institute of Informatics, Federal University of Rio Grande do Sul -- UFRGS\\
-91501-970, Porto Alegre, RS -- Brazil\\
-}
+\author[IIT]{Crepaldi M.}
 
-\address[UGA]{
-Univ. Grenoble Alpes, Inria, CNRS, Grenoble INP, LIG\\
-F-38000 Grenoble -- France\\
-}
+\author[IIT]{Parmiggiani A.}
 
-\cortext[cor]{Corresponding author: 
-  Tel.: +55 (51) 3308-6822;
-}
+% \author[IIT]{Maviglia A.}
+% \author[IIT]{Orciari L.}
+
+\author[GASLINI]{Primavera L.}
+\author[GASLINI]{Bertamino M.}
+
+\address[IIT]{Istituto Italiano di Tecnologia, Genova -- Italy}
+
+\address[GASLINI]{Physical Medicine and Rehabilitation Unit, IRCCS Istituto Giannina Gaslini, Genoa -- Italy}
+
+\cortext[cor]{Corresponding author}
 #+END_EXPORT
 
 *** Abstract                                                       :ignore:
 
 #+LaTeX: \begin{abstract}
 
-Put the abstract here.
+TODO: 
+- [ ] Integrare note review
+- [ ] Sistemare Tabella 1
+- [ ] Scrivere Abstract
 
 #+LaTeX: \end{abstract}
 
@@ -124,85 +161,480 @@ Put the abstract here.
 
 #+BEGIN_EXPORT latex
 %% keywords here, in the form: keyword \sep keyword
+Paediatric stroke \sep Climbing Therapy \sep Multisensory Feedback
 
 %% PACS codes here, in the form: \PACS code \sep code
+%% https://ufn.ru/en/pacs/
 
 %% MSC codes here, in the form: \MSC code \sep code
-%% or \MSC[2008] code \sep code (2000 is the default)
+%% or \MSC[2008] code \sep code (2000, general mathematics, is the default)
+%% https://cran.r-project.org/web/classifications/MSC.html
 #+END_EXPORT
 
 #+latex: \end{keyword}
 *** Maketitle                                                      :ignore:
 #+LaTeX: \maketitle
-** Introduction
 
-This is just an example to show how Orgmode\cite{orgmode} can be
-neatly used to write papers following the Elsevier latex style. Feel
-free to modify and distributed this as you wish.
+** Summary
 
-Be aware that this example is compatible with OrgMode 9.*.
+Paediatric stroke causes significant morbidity for children and can cause significant and lifelong neurological disability.
+Morbidities among paediatric stroke survivors include motor and sensory deficits, language impairment, behavioural problems, and epilepsy.
+Evidence has shown that timely rehabilitation intervention is essential to exploit neuroplasticity, which is highest in the first months.
+Most interventions focus on recovering motor and sensorimotor skills.
+They tend to be strictly operator dependent.
+Some protocols include non-standardized or validated scales and questionnaires, evidence-based practice protocols or non-technological devices.
+The act of associating rehabilitation interventions with quantitative measurements based on the child's sensory and motor state is missing.
+New technology should adapt to the child's activity by providing sensory stimuli appropriate to the specific condition.
+A technology that incorporates sports or physical activity and entertainment tailored to individuals would be more beneficial than existing solutions.
+The current review combines the joint knowledge of neuroscientists, engineers and rehabilitators.
+We present the state of the art in multisensory processing and rehabilitation in paediatric stroke.
+In doing so we focus on the classic rehabilitation approach and today’s technologies for climbing.
+At the end of the review, we present some guidelines to follow to create more usable technologies that produce quantifiable benefits.
+With a basis in intelligent technology, the current paper proposes using multisensorial skills combined with physical activities to improve engagement in paediatrics rehabilitation for children with paediatric stroke.
+In the next paragraph, we present the actual data and impairments related to paediatric stroke.
 
-For a detailed explanation on why and how to write reproducible
-articles using OrgMode, please visit the following [[https://github.com/alegrand/RR_webinars/blob/master/1_replicable_article_laboratory_notebook/index.org][page]].
+** Paediatric stroke: incidence, outcome and multisensory impairments
 
-** Background and Experimental Context
-\label{sec.context}
-*** Background
-\label{sec.background}
-*** Experimental Context and Workload Details
-\label{sec.setup}
-** Related Work and Motivation
-\label{sec.relatedwork}
+Stroke is one of the most frequent causes of child disability in developed countries.
+Paediatric stroke is typically divided into perinatal stroke (between 20\nbsp{}weeks of gestational age and \le{}\nbsp{}28\nbsp{}days old) and childhood stroke (29\nbsp{}days to 18\nbsp{}years old) due to differences in aetiology, risk factors, presentation, and outcomes between the two age groups cite:ferriero_management_2019.
+The estimated incidence of stroke is between one in 1600\nbsp{}and one in 3000\nbsp{}live births neonatal and 5.6\nbsp{}per 100,000\nbsp{}children cite:kirton_brain_2016,laugesaar_acutely_2007,nelson_stroke_2004.
+Paediatric stroke survivors are at high risk of lifelong disability of varying severity and complexity, including motor, proprioceptive, language, cognitive, or behavioural deficits, and neurological sequelae, such as post-stroke epilepsy cite:deveber_neurologic_2000.
+These disabilities require individualized pathways of care cite:malone_pediatric_2020, which require extensive resources and support networks.
 
-Check this paper\cite{schnorr2013visualizing} about how you need to
-semantically aggregate data.
+Recovery after a stroke largely depends on the plastic properties of the brain cite:kornfeld_cortical_2015.
+While post-stroke plasticity has received significant scholarly attention as it pertains to adults cite:butefisch_plasticity_2004,plow_rethinking_2015,starkey_how_2014, mainly focused on the motor system, plasticity mechanisms and implications for rehabilitation in children likely differ and continue to be poorly understood cite:woodward_sensory-motor_2019.
+Early brain damage affects normative development, leading to a lack of accomplishment of developmental milestones cite:abgottspon_relationship_2021.
+However, critical and sensitive periods during brain development offer ``windows of opportunities'' for neuromodulatory interventions, during which the developing brain can particularly benefit from interventions cite:ismail_cerebral_2017.
 
-** Your Great Contribution to Computer Science
-\label{sec.proposal}
-** Your Super Results
-** Conclusion
+Accordingly, this individualized long-term care must suit children's developmental stages and their physical, psychological, and social development within their life contexts, at the same time considering the severity of residual neurological deficits, resulting in activity limitations, stymied cognitive and communicative abilities, and medical comorbidities cite:trabacca_multidisciplinary_2016.
+Furthermore, the extreme clinical variability and complexity of affected functions determine multifaceted skill development cite:trabacca_multidisciplinary_2016.
+Although the rehabilitator's attention focuses largely on motor function, this is not typically the only impaired function after a paediatric stroke; instead, there is also often a multisensory impairment.
+
+Somatosensory impairment is common after paediatric stroke, significantly contributing to the patients’ motor disability and essentially determining their degree of recovery cite:kuczynski_kinesthetic_2017,zandvliet_is_2020; in adults, 45\nbsp{}% to 80\nbsp{}% of stroke patients experience somatosensory impairment, which is associated with motor and functional impairment cite:paciaroni_sensory_2012,meyer_associations_2016.
+Despite the clinical relevance, there is no consensus regarding the proprioceptive deficits assessment or specific rehabilitation strategies cite:findlater_upper_2017.
+
+Post-stroke visual impairment can be multifactorial; visual field loss as Hemianopia is the most common symptom, followed by abnormal eye movements, reduced visual acuity, diplopia, impaired colour vision, and deficits in higher-order visual processing, such as hemispatial neglect.
+The visual system plays a central role in many human functions, so vision reduction can affect many aspects such as quality of life, motivation, and social behaviours cite:ferriero_management_2019.
+
+The central vestibular system might be directly compromised, especially in patients with posterior stroke cite:ekvall_hansson_vestibular_2020.
+It is rarely associated with hearing impairments cite:winstein_guidelines_2016.
+In addition, decreased utilization of the vestibular end-organs due to compromised motor abilities might result in their underdevelopment cite:torok_vestibular_1962.
+
+Moreover, not only can the different sensory modalities be compromised, but it is widely reported in adults after a stroke that there is sometimes difficulty in the sensory integration process cite:van_de_winckel_exploratory_2020.
+One-third of adult stroke patients show impairment in multisensory integration, especially among those with left hemisphere and left basal ganglia and brainstem/cerebellar lesions cite:van_der_stoep_impairments_2019.
+Recent research showed how targeting neural circuitry involving spared motor regions across hemispheres by neuromodulation, and multimodal sensory stimulation could improve rehabilitation in adults cite:alwashmi_audio-visual_2022,teo_does_2016,hakon_multisensory_2018.
+Far less is known about when a stroke occurs at paediatric ages cite:bortone_integration_2017.
+In the next paragraph, we discuss the importance of multisensory and sensory-motor processing and training during development in children.
+
+** The importance of multisensory and sensory-motor training in children
+
+The human brain receives multiple sensory signals from sight, hearing, and touch as a person interacts with their environment throughout the day.
+
+Recent studies indicate that when more sensory signals are available, our brain integrates this information by improving the perception derived from such signals cite:alais_ventriloquist_2004,ernst_humans_2002.
+
+However, this multisensory integration process is not necessarily apparent and it develops late for certain tasks cite:gori_young_2008,nardini_integration_2016.
+For example, one’s ability to integrate audio-visual information about the spatial relationship between stimuli or the visual-tactile dimension develops late after 8-10\nbsp{}years of age cite:gori_young_2008,gori_poor_2010,gori_impaired_2012,gori_late_2021.
+However, other characteristics, such as the ability to locate a sound in space, seem to improve reaction times and precision in the response when accompanied by a sound starting from the first months of life cite:gori_late_2021.
+
+An exciting process that at times appears in late integration cases is cross-modal calibration cite:gori_multisensory_2015,gori_young_2008.
+This process allows information to transfer between one sense and another, guiding the development of a sensory modality starting from a reference one.
+For example, studies confirm that tactile modality is fundamental in calibrating visual modality regarding the size of the objects cite:gori_young_2008.
+Therefore, children with motor disabilities have difficulty visually understanding the size of objects that they could not actually explore cite:gori_impaired_2012.
+Precisely for this reason, it is essential to understand the multisensory mechanisms in children with paediatric and perinatal stroke, as well as to understand how alternative multisensory signals can help provide support.
+
+Linked to the multisensorial theme, another aspect to consider is sensorimotor integration.
+During each movement one makes, touch moves with the body, and vision observes the body in motion.
+The sensory feedback derived from one’s movement in space is fundamental for building a functional representation of one’s body in space cite:bremner_spatial_2008.
+This process’s development, which begins around five months of age when a baby learns to recognize their body by looking at it, is essential for understanding that one’s body can be a tool for acting in space cite:bremner_spatial_2008.
+This sensory-motor association is compromised when one of the two motor or visual signals is absent or deficient.
+However, recent studies indicate that a new form of association can be recreated when a new sensory signal replaces vision.
+An acoustic signal associated with the body’s movement can restore a child’s body and space perception when they are experiencing visual impairment cite:baud-bovy_ability_2015,cappagli_assessing_2018,finocchietti_encoding_2015.
+Positive effects are also apparent in children with motor disabilities cite:tinelli_feasibility_2022.
+As we have seen, stroke is associated with perceptual and sensory impairments.
+Little is known about the multisensory deficit and benefits of new sensory-motor associations among such children.
+
+This introduction to multisensory processing and the importance of sensorimotor integration demonstrates how alternative and integrative signals can act as a tool to facilitate the child's interaction with their body, others, and rehabilitation devices.
+This work that has been addressed in the case of visual loss using an ABBI device, for example cite:baud-bovy_ability_2015,cappagli_assessing_2018,finocchietti_encoding_2015, can be readapted to motor impairment cite:tinelli_feasibility_2022.
+ABBI uses audio feedback for motor activation, but multisensory processing improves the accuracy, velocity and precision of the response cite:ernst_humans_2002.
+This means that using more sensory signals might be even more useful among children with stroke.
+For this reason, the development of new technologies should consider such aspects as a means to create practical and easily usable tools based on multisensory perceptual and motor principles.
+The next section shows how the existing rehabilitation approach considers the combination of multisensory and sensory-motor signals without specific technological devices.
+
+** `Full-body'' rehabilitation in paediatric stroke: State of the Art
+
+The mainstay for paediatric stroke treatment has so far relied on rehabilitation to improve outcomes and support the child during development and skills acquisition cite:kim_pediatric_2009.
+Although effective rehabilitative treatment approaches for paediatric stroke are available, little is known about optimal rehabilitation strategies and the unique interplay between the developing brain, injury and available models of stroke recovery cite:kirton_pediatric_2007,malone_pediatric_2020.
+To date, the available studies mostly focus on motor outcomes cite:greenham_improving_2017, and specifically on upper limb functioning cite:mirkowski_nonpharmacological_2019.
+Cognitive and language outcomes are even more difficult to predict cite:greenham_improving_2017.
+Moreover, researchers have widely studied the rehabilitation of motor impairments in children with cerebral palsy cite:basu_early_2014,hurd_early_2021,kirton_perinatal_2021.
+Cerebral palsy covers a variety of medical conditions, including perinatal stroke early in life, but not stroke later in childhood cite:kirton_cerebral_2006.
+Overall, evidence supports using \gls{cimt}, \gls{habit}, repetitive transcranial magnetic stimulation, functional electrical stimulation, and robotics cite:chung_noninvasive_2015,kirton_brain_2016,kirton_transcranial_2017.
+The strength of evidence is different for the varying types of treatment and age groups cite:ghotra_age_2015.
+Starting from consolidated experience in adults, several studies have confirmed the usefulness of upper limb intensive training during paediatric age, particularly in the application of \gls{cimt} and \gls{habit} cite:brady_constraint-induced_2009,charles_development_2006,ferre_feasibility_2015,hoare_constraint-induced_2019.
+More recently, there have been efforts to create adapted protocols for increasingly early interventions in preschool children cite:deluca_constraint-induced_2012,taub_efficacy_2004, toddlers cite:eliasson_ecological_2011,ferre_feasibility_2015,nordstrand_improvements_2015 and even infants (<\nbsp{}12\nbsp{} months) cite:eliasson_effectiveness_2018.
+The results of these studies all showed that intensive rehabilitation is feasible in young children.
+They also provided moderate-level evidence concerning the efficacy of the two modalities in young children with hemiparesis cite:deppe_modified_2013,fedrizzi_unimanual_2013.
+HABIT-Including Lower Extremity (HABIT-ILE) cite:bleyenheuft_hand-arm_2014 applies motor skill learning and intensive training to both the upper and lower extremities.
+HABIT-ILE involves constantly stimulating both the body's extremities through combined activities for many hours each day over a period of two\nbsp{}weeks.
+This rehabilitation approach improves motor function in school-aged children with unilateral cerebral palsy, including post-stroke hemiparesis cite:bleyenheuft_hand_2015 across the three domains of the International Classification of Functioning, Disability and Health cite:world_health_organization_international_2007.
+
+To our knowledge, there are no significant studies about the use of technological devices in paediatric and perinatal stroke rehabilitation protocols specific for \gls{msi}.
+Despite growing interest in the field of rehabilitation in paediatric stroke, very little is known about post-rehabilitation functional, neuroplastic and biomechanical changes during developmental age.
+For this reason, from a global and not ``purely motor'' point of view, the adaptation of validated protocols on adults could be non-optimal.
+These results suggest a need for the design of new motor rehabilitation protocols in the form of multisensorial fun activities improving strength, endurance, postural stability, technique, balance, coordination, route finding and attention, as well as several psychological aspects.
+
+** Combining full-body activities and multisensory stimulation as a key in rehabilitation
+
+A question emerges regarding how one can combine multisensory processing and rehabilitation.
+
+\gls{msi} in humans has received significant attention from researchers who have provided insights into the neural underpinnings cite:van_der_stoep_impairments_2019; however, as of 2023 only a few studies are available regarding \gls{msi} at a behavioural level in adults with acquired brain damage cite:maier_principles_2019.
+
+Scientific evidence of the importance of multisensory stimulation associated with sensorimotor rehabilitation in children is mainly focused on high-risk newborns cite:baroncelli_nurturing_2010,neel_randomized_2019,tierney_brain_2009.
+In this population, it is well-known how both structural and functional alterations interfere with normal sensory processing and environmental exploration, leading to sub-optimal sensorimotor experiences cite:babik_hemispheric_2022.
+These are the basis of cognitive, motor and social long-term development, which are essential to building a coherent perception of the world, a foundation for learning and social interactions cite:maitre_cortical_2013.
+Using kangaroo care, infant massage and environmental enrichment in neonatal intensive care units are some examples of early multisensory-based rehabilitation approaches cite:nithianantharajah_enriched_2006,purpura_multisensory-based_2017,van_praag_neural_2000.
+
+Among older children, the interaction between neural networks and environments deeply influences brain development and function, including sensory stimuli, early stress, parental-child as well as peer relationships cite:kolb_brain_2011.
+These can be lacking in children with disabilities cite:de_giorgio_roles_2017.
+Multisensory interventions, associated with sensorimotor rehabilitation, often in occupational therapy settings, allow more complex, articulated experiences resulting in adaptive responses with ``full potential'' of circuitry development.
+This multisensory-based rehabilitation approaches support processing and sensory integration as facilitators that increase skills and exploit the child’s motivation (i.e., enhancing tactile, proprioceptive, and vestibular experiences) cite:morelli_multidimensional_2020.
+
+The effectiveness of multisensory stimulation as a possible rehabilitation method after stroke has been investigated in adults with a focus both on low-level, perceptual (visual, auditory and somatosensory deficits) cite:bernard-espina_multisensory_2021, as well as higher-level, cognitive, sensory deficits cite:tinga_multisensory_2016.
+Current multisensory stimulation methods employed in post-stroke rehabilitation include motor imagery, action observation, mirror therapy or virtual environment, and music therapy cite:johansson_multisensory_2012.
+Multisensory stimulation (mainly visual-proprioceptive and audio-visual stimulation) can recruit and strengthen residual pathways in the brain after acquired brain lesions cite:bernard-espina_multisensory_2021.
+Indeed, it may restore sensory performance and function alongside long-term effects cite:jiang_multisensory_2015.
+
+Most existing studies in paediatric settings have focused on including augmented reality cite:kuczynski_kinesthetic_2017, environmental enrichment, ecological activities such as child-initiated movement/active motor learning and home programs cite:novak_state_2020.
+The next paragraph presents a novel approach to combine the neuroscientific findings on multisensory processing and the knowledge of classical rehabilitation with recent technological advancement.
+In doing so, we propose the activity of climbing as an innovative approach to combining these three aspects.
+
+** Climbing as a full-body rehabilitation in paediatric stroke
+
+One might consider what we know about climbing, as well as how we might improve climbing and sensory and motor abilities through multisensory climbing rehabilitation.
+
+\Gls{ct} has been investigated for many pathologies in adults, such as lower back pain cite:schinhan_climbing_2016, multiple sclerosis cite:steimer_effects_2017, cerebellar ataxia cite:fleissner_therapeutic_2010 and, more recently, in paediatric population (summarized in Table\nbsp{}[[table-paediatric]]).
+Available studies presented several limitations and risk of bias due to methodological limitations such as limited access to data, different evaluation tools or insufficient sample size for statistical measurements cite:buechter_climbing_2011.
+Specifically, three studies have discussed therapeutic climbing for children with \gls{cp}, including patients with perinatal stroke cite:bohm_effects_2015,koch_therapeutic_2015,schram_christensen_be_2017, while there are no identifiable studies involving children with paediatric stroke.
+Overall, these studies involved 26\nbsp{}children with \gls{cp} (average age 11.26) who presented with mild to moderate functional disability (Gross Motor Function Classification System I-III) cite:palisano_development_1997, while the study excluded children with severe cognitive and motor impairment.
+The main parameters analysed before, during and after the period of \gls{ct} related to motor function as upper limb strength, gait function or spasticity control.
+In one study, the engagement of children was also evaluated, showing that following the period of training, most children expressed a wish to continue climbing cite:schram_christensen_be_2017.
+Overall, these studies suggested a positive impact on motor competence and peer socialization.
+
+Despite initial promising data on the possible therapeutic role of climbing at paediatric ages, there remains a lack of standardized protocols, including integrative protocols with physiotherapy or stretching.
+
+Furthermore, one must consider possible adverse events or contraindications, as specified in a recent study that suggests a critical discussion about the use of \gls{ct} for children with \gls{cp} due to the risk of improving crouch gait cite:bohm_effects_2015.
+
+Children with paediatric stroke or \gls{cp} lack experience in sensory motor activities due to their neuromotor deficits, and they tend to show a variety of multisensory impairments cite:ekvall_hansson_vestibular_2020,kuczynski_kinesthetic_2017,torok_vestibular_1962,winstein_guidelines_2016.
+A recent paper has reported how sport, due to its known benefits on the motor, cognitive and relational components, can work within this population as an important therapeutic instrument to actively involve children in sensory-motor activities, as well as improve psychological health and relationships with peers cite:engel-yeger_differences_2009.
+
+In particular, sport climbing involves strength, endurance cite:cutts_grip_1993, postural stability cite:bourdin_high_1998, balance, bilateral coordination, route finding cite:cordier_entropy_1993 and attention cite:bourdin_attentional_1998.
+This evidence may suggest that rock climbing in a rehabilitation setting can also improve extension against gravity, flexion-extension alternation, anticipation and planning of the movements.
+Furthermore, a rich sensory-motor activity, like climbing, can support the dynamic sensory-motor process and act as the catalyst for development cite:lane_neural_2019.
+
+Therapeutic climbing is playful and interactive activity calibrated to the specific skills and sensory needs of children allows those with stroke and \gls{cp} to engage in a ``just-right challenge''.
+It has also brought out an adaptive response, which is the basis of learning.
+Finally, augmentative feedback can be useful during significant sensory motor activities for motor re-learning cite:elkholi_improvement_2018.
+
+#+macro: tablecite *citeauthor:$1 (\usebibentry{$1}{year}). \usebibentry{$1}{title}. \usebibentry{$1}{journal}, \usebibentry{$1}{volume}, \usebibentry{$1}{pages}.*
+
+#+name: table-paediatric
+#+caption: The table summarizes the studies about the use of therapeutic rock climbing with children
+#+ATTR_LATEX: :environment longtable :align p{\textwidth}
+| {{{tablecite(bohm_effects_2015)}}}                                                             |
+| A group of eight children and adolescent with bilateral spastic cerebral palsy (mean age 13.0 ± 4.3) has been studied to evaluate the effect of climbing therapy on gait function.  The pupils were random permuted in two blocks and received first 6 weeks of conventional physiotherapy and the climbing therapy and the other group vice versa.  The results of the study showed an improvement in some Gait Profile Score in both therapies.  The role of climbing therapy in crouch gait must be discussed. |
+|                                                                                                |
+| {{{tablecite(daggelmann2020indoor)}}}                                                          |
+| The role of exercise and physical activity to improve endurance and strength is a part of usually rehabilitation care children cancer survivors.  The aim of the study is evaluated the feasibility and beneficial effects of a 10-week indoor wall climbing intervention in 11 childhood cancer survivor (aged 6-21 years old) after cessation of medical treatment.  The results beneficial potentials on physical functioning.  However, some clinical preconditions like close supervision must be ensured. |
+|                                                                                                |
+| {{{tablecite(koch_therapeutic_2015)}}}                                                         |
+| The role of therapeutic climbing has been investigated in this case series study.  Seven pupils (mean age 9.6 ± 3.7) received 19 therapeutic climbing sessions (twice a week) for three months.  The handgrip strength, postural control functional mobility and spasticity control were investigated.  The results showed a statistical significance improvement for right handgrip strength, postural control and functional mobility. |
+|                                                                                                |
+| {{{tablecite(lee2015effects)}}}                                                                |
+| In this case report the effects on a 4 weeks therapeutic climbing wearing weight vest were investigated in a child (aged 7 years 6-month) with attention deficit hyperactivity disorder.  The activation of alpha waves measuring with electroencephalography and the attention span using the Star Cancellation Test were investigated.  The results showed an improvement on the mean of alpha waves and the attention ability of the child. |
+|                                                                                                |
+| {{{tablecite(mazzoni2009effect)}}}                                                             |
+| The perception of global self-worth has been investigated children with special needs (n=46) aged 6-12 years old.  They were randomly assigned into two groups: a group of intervention and a wait-listed control group.  The term special needs refer to students with heterogeneous diagnosis that included difficulty in motor function.  The groups followed a climbing program once a week for six weeks in a commercial indoor climbing facility.  The results showed that children self-efficacy improved significantly, and no change were observed athletic and social competence.  The authors suggest that a longer training period and a specialized adapted program approach may be investigated. |
+|                                                                                                |
+| {{{tablecite(schram_christensen_be_2017)}}}                                                    |
+| Physiological, psychological, and cognitive competence were assessed by enrolling children with cerebral palsy (n=11) and children with typical development (n=6) aged 11-13 years old, during 9 indoor rock-climbing sessions for three weeks.  The results shows that both groups improve their abilities to climb.  The children with cerebral palsy have a significant improvement in Sit-to-stand test and pinch test in the least affected hand.  No change in cognitive abilities and psychological well-being were found. |
+|                                                                                                |
+| {{{tablecite(therme1992apprentissages)}}}                                                      |
+| The authors investigate learning and behaviour’s modulation skills in six psychotic and borderline children (mean age 6 ± 10 months), through indoor climbing.  The authors make a quantitative and qualitative studies of training and emphasized the improvement of time of activity, the achievement of higher target during each session, and the pleasure/anxiety dimensions of  climbing activity.  Results show increase of engagement and time in climbing and success rate which can be related to a remarkable learning skill in these children in a very short period (6 training sessions). |
+
+** Multi-sensory feedback technologies: an overview
+
+The best technological solutions one might use to create a new multisensory integrated rehabilitation system based on climbing are worthy of discussion.
+
+To identify technologies to promote cross-modal integration of sensory systems, in this section we provide a non-exhaustive overview of existing non-invasive technological solutions one can use to achieve multi-sensory feedback.
+To provide multi-sensory feedback, a device needs input about the current state of the system.
+Following that, it must compare the current state with a desired state, and finally give its output correctly.
+All those steps are equally important in giving multi-sensory feedback and will be addressed in this section.
+
+*** Getting Input from the User
+
+The first step is that of acquiring the state (either kinetic and kinematic or both) of the user performing the task.
+
+A citeyear:zhou_human_2008 review cite:zhou_human_2008 classifies human tracking systems in visual (requiring a video camera), non-visual (using various sensors placed on the body) and robotic-aided (using both input and output devices).
+Tracking sensors have been classified as either wearable or non-wearable cite:muro-de-la-herran_gait_2014.
+
+For the purpose of full-body rehabilitation, we will classify input devices based on whether they require a sensor to be placed on the user's body (Wearable devices), if they require contact between the user and an external device, or if one can do everything remotely.
+
+Wearable devices include Inertial Measurement Units (IMUs, usually composed of accelerometers, gyroscopes and magnetometers) and EMG (Electromyography) cite:goffredo_barriers_2020,lambelet_ewrist_2017,roy_combined_2009,wang_brunnstrom_2020.
+These proved to be reliable gait assessment methods in stroke rehabilitation cite:ahmad_reviews_2013,felius_reliability_2022,wang_interactive_2017.
+
+For a detailed description of technologies and future improvements, see citeauthor:sethi_advances_2020 (citeyear:sethi_advances_2020).
+For a recent systematic review of the use of those technologies in post-stroke rehabilitation, see citeauthor:boukhennoufa_wearable_2022 (citeyear:boukhennoufa_wearable_2022).
+
+Input devices can also sense the contact between the user and an external object.
+This can be done in simple ways (e.g., by using a push-button), but an everyday life example could be the touch screen of a smartphone.
+The same kind of sensors (either resistive or capacitive) can be mounted on other objects to track the contact points or surfaces between the user and the object.
+Another, more expensive way to track the contact is by using force sensors.
+These can be realized with different technologies but have the advantage of allowing an estimation of the contact force between the subject and the external object.
+citeauthor:zhou_human_2008 (citeyear:zhou_human_2008) note that another tracking method is the use of external robots, used extensively in stroke rehabilitation cite:chang_robot-assisted_2013,weber_use_2018.
+citeauthor:loureiro_advances_2011 (citeyear:loureiro_advances_2011) compared different kinds of robots used for upper-limb rehabilitation and their connections to the human body.
+
+It is also possible to track the body position without contact with the subject in various ways.
+By using ultrasounds, infrared or laser time of flight (ToF), one can determine the distance of the body from a reference point.
+The same technology is used in depth-sensing cameras like the commercially available Microsoft\textregistered{} Kinect\texttrademark{} to extract the body’s position; this has been used extensively in rehabilitation cite:mousavi_hondori_review_2014.
+Other optic sensors include laser range scanners (LRS), and cameras (with or without markers placed on the subject).
+One can also remotely extract the body position by exploiting electromagnetic (EM) field interaction with the human body.
+One example is the use of UltraWideBand radar to continuously track the position of body limbs during an activity cite:fathy_continuous_2018,qi_novel_2014.
+For a systematic review of the technologies used for stroke rehabilitation at home, see citeauthor:chen_home-based_2019 (citeyear:chen_home-based_2019).
+
+*** Sending Output to the User
+
+Multi-sensory feedback depends on the ability to provide stimuli in multiple sensory modalities, leading to organizing output devices based on the sensory modality they stimulate.
+Among the senses humans use to perceive the world, vision and hearing are the most exploited in the technology used in everyday life, with simple \glspl{led} and buzzers included in most domestic appliances as of 2023.
+Given the permeating use of smartphones, game console controllers, and more recently fitness bracelets and smartwatches, the use of vibrotactile haptic feedback is increasing.
+
+**** Vision
+
+The most simple, cheap and power-efficient way to stimulate human vision using electronic components is a \gls{led}.
+Each \gls{led} can emit light in a fixed wavelength; one can combine them into an RGB system to produce light, which is perceived as various colours by the human eye.
+As usage examples, an \gls{led} can be used near a label to signal that an event occurred, placed behind a translucent object, or placed in a matrix to display text or images.
+
+Electronic displays are other devices commonly that can provide feedback.
+Various display technologies are currently available.
+Displays are a simple and cost-effective way of providing visual feedback and creating a \gls{vr} one can employ for rehabilitation cite:phan_effectiveness_2022,ravi_effectiveness_2017.
+Similar to electronic displays, image projectors can be used to display images, where an image can be projected over other surfaces like walls, floors or even the body itself cite:liu_projector-camera_2007.
+
+While the technology used in head-mounted displays cite:rolland_head-mounted_2005 is the same as that of standard displays, they can be used to create immersive \gls{vr} cite:biocca_communication_1995, but special care is required to avoid motion sickness cite:chang_virtual_2020.
+Nevertheless, those devices have been used in post-stroke rehabilitation cite:palacios-navarro_head-mounted_2021.
+
+**** Hearing
+
+Electroacoustic transducers are devices that can produce audible sound vibrations.
+To produce a simple tone, a piezoelectric buzzer is appropriate, while for more complex sounds loudspeakers can be used.
+Depending on the number and the location of the speakers, it is possible to create more complex environments like spatialized sounds cite:spors_spatial_2013, which may be simulated using stereo headphones cite:algazi_headphone-based_2011 by using phase and volume difference between the two channels.
+
+Bone-conducting headsets can also produce audible sound vibrations.
+Compared to standard headphones, these do not occlude the ear canal, thus allowing one to perceive other external sounds.
+
+**** Haptic
+
+A simple and cheap way of providing haptic feedback is by using vibrotactile stimulators -- technology regularly employed by smartphones, game console controllers and fitness bands.
+
+Force-feedback devices and actuated systems (robotic devices) can provide more complex force-feedback to the user.
+
+It is also possible to provide haptic feedback without requiring contact between the user and a device.
+Those ``contactless'' cite:arafsha_contactless_2015 haptic feedback use air (either with air jets or with ultrasonic sounds) to stimulate the user’s skin.
+
+**** Combining Multiple Sensory Stimulations
+
+The midbrain combines information coming from multiple senses cite:stein_neural_2009 and integrates them into a coherent representation cite:zmigrod_feature_2013.
+Multimodal feedback -- sometimes referred to as multisensory feedback -- is the use of feedback coming from multiple sensory modalities simultaneously.
+Using feedback in multiple sensory modalities immersion increases the sense of presence in virtual environments cite:slater_immersion_1996.
+The effect of multimodal feedback has been studied in different kinds of learning environments; as an example, cite:sigrist_augmented_2013 reviewed the use of multiple sensory feedback in motor learning, their efficacy, and the best way to combine them depending on the complexity of the movement one must learn.
+Multimodal stimulation also appeared to be more effective in stroke recovery cite:pohl_experiences_2018.
+
+From a technological standpoint, \gls{vr} headsets are a good example of multimodal feedback, where the user receives stereo visual feedback, audio and vibrotactile stimulation via the handheld controllers.
+
+*** Climbing Technologies
+
+There are various kinds of technological solutions currently available for supporting climbing.
+Some of these projects, along with the kind of inputs and outputs used, have been summarized in Table\nbsp{}[[table-climbing-tech]]
+They differ both regarding the aim and technologies used.
+Some simply focus on the building blocks of a sensorized climbing wall, such as GreenGrip which develops climbing holds that diffuse light made with new, sustainable materials, or Grasshopper which produces reclinable climbing walls.
+The majority of currently available systems are commercial, but some examples are also available in the scientific literature.
+For example, cite:ouchi_detecting_2010 aim to study the physical behaviour of playing children to improve the safety of playgrounds.
+citeauthor:vahamaki_real-time_2016 (citeyear:vahamaki_real-time_2016) uses a depth sensor to estimate the climbers’ pose.
+Two projects developed a climbing wall from scratch cite:liljedahl_digiwall_2005 aimed at combining climbing with computer games, using sound and music as sensory feedback to replace the screen, and using the user contact with the climbing holds as an input device.
+The ACCEPT project also developed a sensorized climbing wall aimed at the rehabilitation of children with cerebral palsy.
+
+When considering these systems' inputs and outputs, it is possible to see that the most used kind of output given is visual: most of those projects use \gls{led} lights near or below the climbing holds.
+In the ValoClimb system, a projector beams video content on the climbing wall.
+Instead, in the Tacktion system, the climbing wall has transparencies that show displays mounted behind it.
+Three projects provide audio feedback by using two or more speakers.
+
+The input from the user is obtained in different ways: seven projects have sensors that detect the contact between the holds and the user, two of which also sense the contact force by using force sensors in each climbing hold; two other projects use camera-based motion tracking to estimate the position of the body.
+The interest in climbing wall technologies might be driven by the increased interest in indoor climbing, a market which is increasing roughly 10\nbsp{}% annually[fn:1].
+
+#+latex: \def\mystrut{\rule{0pt}{1.1\normalbaselineskip}}
+#+name: table-climbing-tech
+#+caption: Various commercial and research projects trying to enhance climbing by using different kinds of technologies, sorted alphabetically.
+#+attr_latex: :font \footnotesize :float sidewaystable
+| Project Name                                                          | Description                                           | Inputs                                   | Outputs                                   |
+|-----------------------------------------------------------------------+-------------------------------------------------------+------------------------------------------+-------------------------------------------|
+| citeauthor:ouchi_detecting_2010 (citeyear:ouchi_detecting_2010)       | Record physical behaviour of children                 | Strain gauge force sensor in each hold   | Transparent holds with \gls{led} lights   |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| citeauthor:vahamaki_real-time_2016 (citeyear:vahamaki_real-time_2016) | Real time climbing pose estimation                    | Depth sensing camera for motion tracking | NA                                        |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *ACCEPT*                                                              | Adaptive climbing wall, sensorized and reconfigurable | 3 Axis Force Sensor in each hold,        | NA                                        |
+|                                                                       | optimized for children with cerebral palsy            | IMU on smart bracelet                    |                                           |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *Arcade Climbing*                                                     | Help climbers of all levels, move, play and train     | Force Feedback (“when pulled”)           | Partially transparent holds with          |
+|                                                                       |                                                       | in each hold                             | \gls{led} lights                          |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *Clift Climbing*                                                      | Motivate climbers                                     | Contact (“track every grip and step”)    | \gls{led} lights                          |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *ClimbLing*                                                           | Improve indoor climbing experience                    | Capacitive Touch in each hold            | Transparent holds with \gls{led} lights   |
+|                                                                       | with new challenges                                   |                                          |                                           |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *Digiwall* cite:liljedahl_digiwall_2005                               | Introduce climbing to new users,                      | Touch sensors in each hold               | 7 loudspeakers                            |
+|                                                                       | promote physical activity                             |                                          |                                           |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *Edge*                                                                | Training wall for climbers                            | Pressure sensors in each hold            | Vibrotactile bracelets, transparent hodls |
+|                                                                       |                                                       |                                          | with \gls{led} lights and Sound Speakers  |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *EverActive*                                                          | Adjustable climbing wall                              | NA                                       | \gls{led} lights below each hold          |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *Grasshopper*                                                         | Adjustable climbing wall                              | NA                                       | NA                                        |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *GreenGrip*                                                           | Develop materials for climbing holds                  | NA                                       | NA                                        |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *Kilter Board*                                                        | Provide boulder problems from an online database,     | NA                                       | Transparent holds with \gls{led} lights   |
+|                                                                       | on an adjustable-angle wall                           |                                          |                                           |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *MoonBoards*                                                          | Optimize climbing performances with a standardized    | NA                                       | \gls{led} light below each hold           |
+|                                                                       | bouldering training wall                              |                                          |                                           |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *SpectrumSports*                                                      | RGB \gls{led} grips for climbing walls                | NA                                       | Transparent holds with \gls{led} lights   |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *Tracktion*                                                           | Climbing Video Game                                   | Capacitive Touch in each hold            | Transparent holds with \gls{led} lights,  |
+|                                                                       |                                                       |                                          | display behind the climbing wall          |
+|                                                                       | $\mystrut$                                            |                                          |                                           |
+| *ValoClimb*                                                           | Fully automatic attraction                            | Some form of motion tracking             | Video Projector, Speakers                 |
+#+TBLFM: 
+
+** Discussion
+
+*** Input for future developments: how can we improve sports/climbing tools for children with motor disabilities?
+
+**** On a neuroscientific level
+
+We believe that three main aspects can be improved on a neuroscientific level.
+
+(1) Rehabilitation technologies for stroke children should be multisensory to facilitate integration.
+First, as the introduction discusses, motor disability brings with it not only impairments related to motor aspects but also related to other sensory aspects, such as the sensory and perceptual ones.
+The possibility of understanding these mechanisms and intervening with multisensory stimulation can provide excellent rehabilitation support.
+For example, one can integrate vision with sound by considering associations in our perceptual system.
+This might improve the deficit associated with visual size processing highlighted in children with motor impairment.
+One example is the visual size and sound size association provided by cross-modal matches.
+Low sounds are associated with large dimensions and high-pitched sounds with small dimensions.
+This simple acoustic signal could be included in evaluating the size of the objects to facilitate their interaction.
+In the climbing example, holds of different sizes can play with low and high sounds to enable preparation for the grip.
+Similarly, a sensory signal associated with movement, such as a sound, could help the child with motor disabilities control their movement and interact with the instrument or other children.
+The climbing could allow an enriched sensory experience.
+Augmented feedback (i.e., on the tactile-auditory system) can stimulate the development of other systems (i.e., to better identify the position of hands and better understand the spatial reference).
+
+(2) Rehabilitation technologies for stroke children should be adaptable to the needs and characteristics of the individual and, therefore, flexible.
+Many sensory characteristics change during development in the typical child.
+These differences are even more marked in a child with stroke who can have various motor, cognitive and sensory problems.
+We believe that a second important point to consider in developing new technologies is to create adaptable and flexible systems for each child's individuality and rehabilitation period.
+This can happen thanks to the development of intelligent systems based on decoding sensory or motor inputs that produce feedback adapted to the child's sensory, cognitive, and motor needs.
+Artificial intelligence and \gls{ml} applied to technological solutions might offer new possibilities in this direction.
+
+(3) Rehabilitation technologies for stroke children should be validated, in comparison with a control group, to demonstrate their effectiveness.
+Very often, technologies are developed without being scientifically validated.
+Effective intervention should produce a measurable improvement in behaviour and possibly also in cortical neuroplasticity.
+As we have seen, there is an optimal intervention window for a child with stroke to obtain better results.
+This window must be exploited with adequate technology; that technology must be scientifically validated with quantitative methods.
+This would benefit both the user (e.g., improvement in the quality of life) and scientific knowledge (e.g., quantified validations would allow studying of the cortical mechanisms underlying the change).
+
+**** On a Clinical Level
+
+From a clinical point of view, we identified  three other main aspects requiring improvement.
+(1) To develop standardized rehabilitation protocols for the use of climbing in clinical practice.
+The limited number of studies available in the literature on therapeutic climbing in paediatric age does not allow one to define a priori the optimal rehabilitation protocol according to the type of patient, motor impairment and therapeutic aims.
+Moreover, the study systematically excluded children with severe cognitive and motor impairment.
+The use of advanced technologies and the applicability of therapeutic climbing in a hospital setting could allow activities to include children with severe disabilities.
+
+(2) To identify the parameters that are most likely to be changed through therapeutic climbing as an alternative or combined therapy to the rehabilitative standard of care.
+The main parameters analysed before, during and after the period of \gls{ct} in \gls{cp} related to the motor function as upper limb strength, gait function, Range of Motion or spasticity control.
+However, based on the experiences gained by applying therapeutic climbing in adults or different paediatric conditions, it is reasonable to think that positive results may appear in different areas such as self-esteem, peer socialization and engagement.
+Only the definition of standardized assessment tools and scales before, during and after rehabilitation protocols will lead to the real effectiveness of climbing training in all these areas.
+This permits the conditions necessary to lay the theoretical foundations for using therapeutic climbing not only in the rehabilitation of paediatric stroke but also in many other conditions.
+The use of specific technological devices may allow one to obtain a standardized outcome and thereby provide the best standard of care.
+
+(3) To evaluate the impact of an enriched activity on the sensorimotor experience, reducing the lack of experience typical of children with sensorimotor damage.
+Children with stroke or \gls{cp} can experience a limitation in motor, cognitive and praxis skills due to sensory processing impairment.
+This can result in a lack of sensorimotor experiences, learning delay and reduction of social interaction with peers, as well as accessibility and independence in self-care or play skills.
+The intrinsic features of climbing, or Sensor-Embedded Climbing with advanced technologies, can both enrich the sensory experience and improve sensory motor ability.
+This could represent an effective tool for reducing the gap experience between typically developed children and those with stroke or \gls{cp}, depending on their limited mobility and cognitive, sensory perceptual and fine motor skill deficits.
+
+**** On a Technological Level
+
+(1) Conveying information from the technology solution
+Providing multi-sensory feedback is insufficient for deciding which kinds of information in a sensory modality can be conveyed in multiple ways.
+Using sound as an example, basic physical properties like frequency and amplitude can be modulated, but it is also possible to produce rhythmic sounds (beeps with different duty cycles, and frequencies), or even by using natural sounds or speech cite:setti_audio-corsi_2022.
+Depending on personal preferences, impairments and age, different output properties can be manipulated, as it is important to tailor the activity to the needs of involved children.
+
+From an electrical system-level viewpoint, one of the key features that enable both data collection to make therapy decisions and quantify the performance of climbing is the flexibility of the implemented device.
+The design must be suitable for research purposes and enable scientific exploration.
+Electronic systems can now include a wide variety of sensors and actuators and a single Printed Circuit Board (PCB) can contain a heterogeneous collection of components.
+In this respect, the system can embed a sensor fusion.
+
+Each sensor has a very strict functionality; they very sharply sense a limited number of physical quantities, and it is not generally possible to increase the number of sensors above a certain limit.
+The limit is intrinsic in the components' technology.
+A large quantity of data needs to be processed as a means to assess the status of the user: even at low frequency, the sampled quantities from a large number of climbing rods can constitute a large amount of data, and its transmission to a central node for processing.
+This requires an effective partitioning of the network.
+Data must be processed in real time with a maximum latency of 20\nbsp{}ms cite:harris_system_2017.
+The design of each climbing rod must be effective to decrease the quantity of information transmitted using pre-processing or intelligent signalling mechanisms and sensor configuration.
+The electronics need to be co-designed with the mechanics to fully exploit the form factors made available by the climbing holds.
+Because the climbing rods need to sustain a significant weight, one must carefully plan the positioning of the electronics within the holds.
+In the case of touch detection, different approaches can be applied based on capacitive sensing, inductive sensing, light sensing, and infrared sensing.
+Among these technologies, the most flexible that ensures an overall low cost is infrared, largely because sensors can be deployed according to a spatial configuration that can only be devised based on the form of the hold without having to intervene on its surface mechanical features, as it would be required to functionalize the surface of the hold using suitable substrates and electrodes.
+The use of surface-based touch detectors would increase the complexity of the wiring, the mechanics of the hold, and consequently cost.
+Moreover, such solutions would imply the use of more sophisticated technologies, thereby severely impacting the production cost.
+
+(2) Software
+Software plays an important role in providing appropriate feedback.
+To outperform the limitations of the above-described electronics, sensor fusion can be improved by using \gls{ml} on the sampled sensor data by first training the network using a sufficiently large statistical dataset.
+This can be acquired thanks to the flexibility given by the research-oriented design of the device.
+This constructed dataset can be designed on purpose and can regard the interaction of the human while climbing with one or more sensors in different operating conditions.
+A well-trained neural network can open the way to achieve increased performance with conventional and standardized hardware.
+It can be deployed, depending on its complexity, both on micro-controlled systems and on general-purpose computers.
+The possibility of intervening in the firmware or software in the system at many levels of abstraction enables on-demand re-programming.
+It also opens the way to being able to provide suitable feedback on patients and improved climbing training sessions for patients.
+Moreover, assuming a more powerful scheme, \gls{ml} can be even more personalized based on a continuously evolving dataset to sharpen the experience of the user and improve data collection during a session.
+
+** Conclusions
+
+To conclude, very little is known about post-rehabilitation functional, neuroplastic and biomechanical changes during developmental age in paediatric stroke.
+In this review, we described the importance of multisensory processing, and we proposed new motor rehabilitation protocols and technologies that can provide multisensorial fun activities improving motor, cognitive and psychological aspects in young children with stroke.
+
 ** Acknowledgments                                                  :ignore:
 
 #+LATEX:\section*{Acknowledgements}
 
-Who paid for this?
-
 ** References                                                        :ignore:
 
 # See next section to understand how refs.bib file is created.
+bibliographystyle:elsarticle-harv
+bibliography:Review.bib
 
-#+LATEX: \bibliographystyle{elsarticle-harv}
-#+LATEX: \bibliography{refs}
+* Emacs setup                                                      :noexport:
+ 
+# Local Variables:
+# eval: (add-to-list 'load-path ".")
+# eval: (require 'ox-extra)
+# eval: (ox-extras-activate '(ignore-headlines))
+# eval: (require 'org-ref)
+# eval: (require 'doi-utils)
+# eval: (setq org-latex-pdf-process (list "latexmk -pdf %f"))
+# eval: (add-to-list 'org-export-before-processing-hook (lambda (be) (org-babel-tangle)))
+# End:
 
-* Bib file is here                                                 :noexport:
+* Footnotes
 
-Tangle this file with C-c C-v t
-
-#+begin_src bib :tangle refs.bib
-@article{orgmode,
-  author =	"Eric Schulte and Dan Davison and Thomas Dye and Carsten Dominik",
-  title =	"A Multi-Language Computing Environment for Literate Programming and Reproducible Research",
-  journal =	"J. of Stat. Soft.",
-  volume =	"46",
-  number =	"3",
-  day =  	"25",
-  year = 	"2012",
-  CODEN =	"JSSOBK",
-  ISSN = 	"1548-7660",
-  bibdate =	"2011-10-03",
-  accepted =	"2011-10-03",
-  acknowledgement = "",
-  submitted =	"2010-12-22",
-}
-
-@incollection{schnorr2013visualizing,
-  title={Visualizing More Performance Data Than What Fits on Your Screen},
-  author={Schnorr, Lucas M and Legrand, Arnaud},
-  booktitle={Tools for High Performance Computing 2012},
-  pages={149--162},
-  year={2013},
-  publisher={Springer}
-}
-
-
-#+end_src
+[fn:1] https://www.transparencymarketresearch.com/climbing-gym-market.html
